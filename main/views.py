@@ -35,10 +35,10 @@ def main(request):
 	        [231,240,335,299],
 	        [228,309,338,380]
 	    ],
-	    [1, 1, 0, 0, 0, 0, 1, 0],
+	    [0, 0, 0, 0, 0, 0, 0, 0],
 	    1000,
-	    "KunalPark",
-	    "999468758"
+	    "Centralized Parking",
+	    "9999999999"
 	]
 
 	IMAGE_DIR = 'test_image/dropbox_image.jpeg'
@@ -76,7 +76,15 @@ def main(request):
 	images = np.array(images)
 
 	predictions = model.predict(images, verbose=1)
-	print(predictions)
+
+	#print(predictions)
+	
+	result = []
+	for p in range(len(predictions)):
+		result.append(int(round(predictions[p][0])))
+
+	print(result)
+
 	predictions = np.hstack(predictions < 0.5).astype(int)
 	print("flag")
 	i = 0
@@ -90,7 +98,13 @@ def main(request):
 	#     plt.savefig('check.png')
 	#imgplot = plt.imshow(im_)
 	#plt.show()
-	print(data.loc[0]['available'])
+	#data.loc[0]['available'] = result
+	
 
+	for i in range(len(data.loc[0]['available'])):
+		data.loc[0]['available'][i] = result[i]
+
+	
+	#return data.loc[0]['available'] 
 	return HttpResponse(data.loc[0]['available'])
 
