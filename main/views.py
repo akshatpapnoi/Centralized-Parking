@@ -12,9 +12,17 @@ from .custom import LocalResponseNormalization
 import cv2
 from os.path import isfile, join, exists
 import shutil
-import sys
+#import sys
 
 # Create your views here.
+
+#this is index html view
+def index(request):
+    context = {
+        'title' : 'Home',
+    }
+    return render(request, 'index.html', context)
+
 def main(request):
 	data = pd.DataFrame(columns=['spot_id','latitude','longitute','rows','cols','slot_available','coordinates','available','price','name','contact'])
 
@@ -47,11 +55,11 @@ def main(request):
 
 	if not exists(IMAGE_DIR):
 	    print('Image file missing... Exiting!!')
-	    sys.exit(0)
+	    #sys.exit(0)
 
 	if not exists(CHECKPOINT_DIR):
 	    print('Checkpoint file missing... Exiting!!')
-	    sys.exit(0)
+	    #sys.exit(0)
 
 	model = load_model(CHECKPOINT_DIR, custom_objects={'LocalResponseNormalization': LocalResponseNormalization})
 
@@ -86,7 +94,7 @@ def main(request):
 	print(result)
 
 	predictions = np.hstack(predictions < 0.5).astype(int)
-	print("flag")
+	#print("flag")
 	i = 0
 	im_ = np.copy(im)
 	for cord in data['coordinates'][0]:
@@ -104,7 +112,11 @@ def main(request):
 	for i in range(len(data.loc[0]['available'])):
 		data.loc[0]['available'][i] = result[i]
 
-	
+	context = {
+		'title'  : 'Book',
+		'availabe' : data.loc[0]['available'],
+	}
+	return render(request, 'book.html', context)
 	#return data.loc[0]['available'] 
-	return HttpResponse(data.loc[0]['available'])
+	#return HttpResponse(data.loc[0]['available'])
 
