@@ -1,3 +1,5 @@
+
+
 .heading {
     text-align: center;
     padding: 200px 500px 0px 500px;
@@ -114,4 +116,12 @@ a:hover:after{
     border-left-color: #262626;
     border-right-color: transparent;
 }
+}
+
+
+.bg{
+    background-image: url('background.jpg');
+    height: 100%; 
+    background-position: center;
+    opacity: 0.65;
 }
