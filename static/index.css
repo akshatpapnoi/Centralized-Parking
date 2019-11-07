@@ -1,127 +1,30 @@
-
-
-.heading {
+.main-heading {
+    position: absolute;
+    left: 0;
+    top: 30%;
+    width: 100%;
     text-align: center;
-    padding: 200px 500px 0px 500px;
+    color:#000;
 }
 
-.heading h3 {
-    border: solid 2px #262626;
+.main-heading span.border {
+    background-color: #636363;
+    color: #fff;
+    padding: 5px;
+    font-size: 25px;
+    letter-spacing: 5px;
 }
 
-.center{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+.btn-custom {
+    font-size: 20px;
+    color:#fff;
+    border: solid 2px #fff;
+    border-radius: 0px;
+    background-color: #636363;
 }
 
-a{
-    position: relative;
-    text-decoration: none;
-    width: 100px;
-    height: 50px;
-    text-align: center;
-    line-height: 50px;
-    display: inline-block;
-    font-size: 24px;
-    color: #262626;
-}
-
-a:before{
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    width: 0;
-    height: 0;
-    background: transparent;
-    border: 2px solid transparent;
-}
-
-a:hover {
-    color: #262626;
-    text-decoration: none;
-}
-
-a:hover:before{
-    animation: animate 1s linear forwards;
-}
-
-@keyframes animate{
-0%{
-    width: 0;
-    height: 0;
-    border-top-color: #262626;
-    border-bottom-color: transparent;
-    border-left-color: transparent;
-    border-right-color: transparent;
-}
-50%{
-    width: 100%;
-    height: 0;
-    border-top-color: #262626;
-    border-bottom-color: transparent;
-    border-left-color: transparent;
-    border-right-color: #262626;
-}
-100%{
-    width: 100%;
-    height: 100%;
-    border-top-color: #262626;
-    border-bottom-color: transparent;
-    border-left-color: transparent;
-    border-right-color: #262626;
-}
-}
-
-a:after{
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    width: 0;
-    height: 0;
-    background: transparent;
-    border: 2px solid transparent;
-}
-
-a:hover:after{
-    animation: animate2 1s linear forwards;
-    animation-delay: 1s;
-}
-
-@keyframes animate2{
-0%{
-    width: 0;
-    height: 0;
-    border-top-color: transparent;
-    border-bottom-color: transparent;
-    border-left-color: #262626;
-    border-right-color: transparent;
-}
-50%{
-    width: 0;
-    height: 100%;
-    border-top-color: transparent;
-    border-bottom-color: #262626;
-    border-left-color: #262626;
-    border-right-color: transparent;
-}
-100%{
-    width: 100%;
-    height: 100%;
-    border-top-color: transparent;
-    border-bottom-color: #262626;
-    border-left-color: #262626;
-    border-right-color: transparent;
-}
-}
-
-
-.bg{
-    background-image: url('background.jpg');
-    height: 100%; 
-    background-position: center;
-    opacity: 0.65;
+.btn-custom:hover {
+    color:#fff;
+    border-color:#636363;
+    background-color: none !important;
 }
