@@ -24,7 +24,9 @@
         <span class="border">Centralized Parking System</span>
         <br>
         <span class="border">Using Computer Vision</span><br><br><br>
-        <input type="button" class="btn btn-custom" value="Check Availability" onclick="book()"> 
+        <input type="button" class="btn btn-custom" value="Direction">
+        <input type="button" class="btn btn-custom" value="Check Availability" onclick="availability()">
+        <input type="button" class="btn btn-custom" value="Book" onclick="booking()"> 
     </div>
     
 
@@ -33,8 +35,12 @@
 
 {% block script %}
 <script type="text/javascript">
-    function book() {
-        window.location = "/book";
+    function availability() {
+        window.location = "/available";
+    }
+
+    function booking() {
+        window.location = "/booking";
     }
 </script>
 {% endblock script %}

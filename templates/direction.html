@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+
+    
+{% block styles %}
+    <script src="https://kit.fontawesome.com/66748fbdce.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href= "{% static 'index.css'%}">
+
+    <style>
+        .left {
+            background-image: url("{%static 'bg.jpg'%}") ;
+            height: 100%; 
+
+            /* Center and scale the image nicely */
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+
+    <style>
+        .right {
+            background: #eee;
+        }
+        .main {
+            margin-top: 150px;
+            margin-left: 150px;
+
+    </style>
+{% endblock styles %}
+
+
+{% block content %}
+
+    <div class="main">
+        <div class="row">
+            <div class="col-md-4 left">
+                <div class="main-heading">
+                    <span class="border">Centralized Parking System</span>
+                    <br>
+                    <span class="border">Using Computer Vision</span><br><br><br>
+                    <input type="button" class="btn btn-custom" value="Direction">
+                    <input type="button" class="btn btn-custom" value="Check Availability" onclick="book()">
+                    <input type="button" class="btn btn-custom" value="Book"> 
+                </div>
+            </div>
+
+            <div class="col-md-8 right">
+
+                <div class="container">
+                    <iframe width="600" height="780" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJZxWJ268aDTkRhwqTHHNw0hA&key=AIzaSyCbKE0pHJ1cv2l7wPQT0uwKQ26lZNJb6f4" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+{% endblock content %}
+
