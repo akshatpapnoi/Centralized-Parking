@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% load static %}
+
+    
+{% block styles %}
+    <script src="https://kit.fontawesome.com/66748fbdce.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href= "{% static 'index.css'%}">
+
+    <style>
+        .left {
+            background-image: url("{%static 'bg.jpg'%}") ;
+            height: 100%; 
+
+            /* Center and scale the image nicely */
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+
+    <style>
+        .right {
+            background: #eee;
+        }
+        .main {
+            margin-top: 150px;
+            margin-left: 150px;
+        }
+        .fa-car{
+            font-size: 100px;
+        }
+    </style>
+{% endblock styles %}
+
+
+{% block content %}
+
+    <div class="main">
+        <div class="row">
+            <div class="col-md-4 left">
+                <div class="main-heading">
+                    <span class="border">Centralized Parking System</span>
+                    <br>
+                    <span class="border">Using Computer Vision</span><br><br><br>
+                    <a href="{% url 'direction' %}"><input type="button" class="btn btn-custom" value="Direction"></a>
+                    <a href="{% url 'available' %}"><input type="button" class="btn btn-custom" value="Check Availability"></a>
+                    <a href="{% url 'booking' %}"><input type="button" class="btn btn-custom" value="Book"> </a> 
+                </div>
+            </div>
+
+            <div class="col-md-8 right">
+
+                <div class="container">
+
+                    <div class="row">
+                        <div class="col-md-6"> <h4><i class="fas fa-car" style='font-size:48px; color: #ff3f34; text-align: center;'></i> : Non-vacant</h4></div>
+                        <div class="col-md-6"><h4><i class="fas fa-car" style='font-size:48px; color: #0be881; text-align: center;'></i> : Vacant</h4></div>                                                                                                                                                                                                       
+                    </div><br><br><br>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <i class="fas fa-car" id="car3"></i> <br> <br> <br>
+                            <i class="fas fa-car" id="car7"></i>
+                        </div>
+                        <div class="col-md-3">
+                            <i class="fas fa-car" id="car2"></i> <br> <br> <br>
+                            <i class="fas fa-car" id="car6"></i>
+                        </div>
+                        <div class="col-md-3">
+                            <i class="fas fa-car" id="car1"></i> <br> <br> <br>
+                            <i class="fas fa-car" id="car5"></i>
+                        </div>
+                        <div class="col-md-3">
+                            <i class="fas fa-car" id="car0"></i> <br> <br> <br>
+                            <i class="fas fa-car" id="car4"></i>
+                        </div>
+                    </div>
+
+                    <form action="{% url 'booking' %}" method="POST">
+                        {% csrf_token %}
+                        email:<br>
+                        <input type="text" name="email"><br>
+                        parking spot:<br>
+                        <input type="text" name="parking_spot_id"><br>
+                        end time:<br>
+                        <input type="datetime-local" name="end_time"><br>
+                        <input type="submit" name="submit">
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+{% endblock content %}
+
+
+{% block script %}
+    <script type="text/javascript">
+        status = {{availabe}};
+        var arr = status.split(",");
+        for (var i = 0; i < arr.length ; i++) {
+            var text = "";
+            text += "car" + i; 
+            if(arr[i]== "0"){
+                document.getElementById(text).style.color = "#ff3f34";
+            } else{
+                document.getElementById(text).style.color = "#0be881";
+            }
+        }
+    </script>
+{% endblock script %}

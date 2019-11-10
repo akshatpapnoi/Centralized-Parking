@@ -41,9 +41,9 @@
                     <span class="border">Centralized Parking System</span>
                     <br>
                     <span class="border">Using Computer Vision</span><br><br><br>
-                    <input type="button" class="btn btn-custom" value="Direction">
-                    <input type="button" class="btn btn-custom" value="Check Availability" onclick="book()">
-                    <input type="button" class="btn btn-custom" value="Book"> 
+                    <a href="{% url 'direction' %}"><input type="button" class="btn btn-custom" value="Direction"></a>
+                    <a href="{% url 'available' %}"><input type="button" class="btn btn-custom" value="Check Availability"></a>
+                    <a href="{% url 'booking' %}"><input type="button" class="btn btn-custom" value="Book"> </a>
                 </div>
             </div>
 
@@ -75,21 +75,6 @@
                         </div>
                     </div>
 
-
-                    <form action="{% main: booking %}" method="POST">
-                        {% csrf_token %}    
-                      email:<br>
-                      <input type="text" name="email" >
-                      <br>
-                      Spot id:<br>
-                      <input type="text" name="parking_spot_id">
-                      End time:<br>
-                      <input type="datetime-local" name="end_time">
-                      <br><br>
-                      <input type="submit" value="Submit">
-                    </form> 
-
-                   
                 </div>
             </div>
         </div>

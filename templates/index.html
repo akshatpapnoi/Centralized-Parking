@@ -24,9 +24,9 @@
         <span class="border">Centralized Parking System</span>
         <br>
         <span class="border">Using Computer Vision</span><br><br><br>
-        <input type="button" class="btn btn-custom" value="Direction">
-        <input type="button" class="btn btn-custom" value="Check Availability" onclick="availability()">
-        <input type="button" class="btn btn-custom" value="Book" onclick="booking()"> 
+        <a href="{% url 'direction' %}"><input type="button" class="btn btn-custom" value="Direction"></a>
+        <a href="{% url 'available' %}"><input type="button" class="btn btn-custom" value="Check Availability"></a>
+        <a href="{% url 'booking' %}"><input type="button" class="btn btn-custom" value="Book"></a>
     </div>
     
 
@@ -34,13 +34,5 @@
 
 
 {% block script %}
-<script type="text/javascript">
-    function availability() {
-        window.location = "/available";
-    }
 
-    function booking() {
-        window.location = "/booking";
-    }
-</script>
 {% endblock script %}
