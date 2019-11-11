@@ -153,21 +153,20 @@ def booking(request):
 	
 	if request.method == 'POST':
 		email = request.POST.get('email')
-		parking_spot_id = request.POST.get('parking_id')
+		parking_spot_id = request.POST.get('parking_spot_id')
 		end_time = request.POST.get('end_time')
 
-		print(parking_spot_id)
 
 		pin = randint(1000, 9999)
 
-		new_booking = Booking.objects.create(email = email, parking_spot_id = 1, end_time= end_time, pin = pin)
+		new_booking = Booking.objects.create(email = email, parking_spot_id = parking_spot_id, end_time= end_time, pin = pin)
 		new_booking.save()
 
 		subject = 'Pin for parking spot booking'
 		message = ' Hello user, your pin for parking spot booking is {}. Your parking spot id is {} and your booking is valid till {}.'.format(pin, parking_spot_id, end_time)
 		email_from = settings.EMAIL_HOST_USER
 		recipient_list = [email,]
-		#send_mail( subject, message, email_from, recipient_list )
+		send_mail( subject, message, email_from, recipient_list )
 	    
 
 		return redirect('booking')
