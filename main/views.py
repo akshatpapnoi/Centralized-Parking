@@ -36,7 +36,6 @@ def direction(request):
 	context = {
 		'title' : 'Direction',
 	}
-
 	return render(request, 'direction.html', context)
 
 
@@ -71,7 +70,6 @@ CHECKPOINT_DIR = 'weights/checkpoint-07-0.07.hdf5'
 
 def available(request):
 	
-
 	if not exists(IMAGE_DIR):
 	    print('Image file missing... Exiting!!')
 	    #sys.exit(0)
@@ -138,9 +136,9 @@ def available(request):
 	for i in range(len(data.loc[0]['available'])):
 		data.loc[0]['available'][i] = result[i]
 
-
+	
 	context = {
-		'title'  : 'available',
+		'title'  : 'Available',
 		'availabe' : data.loc[0]['available'],
 	}
 
@@ -152,7 +150,7 @@ def available(request):
 
 
 def booking(request):
-
+	
 	if request.method == 'POST':
 		email = request.POST.get('email')
 		parking_spot_id = request.POST.get('parking_id')
@@ -243,7 +241,6 @@ def booking(request):
 		for i in range(len(data.loc[0]['available'])):
 			data.loc[0]['available'][i] = result[i]
 
-
 		context = {
 			'title'  : 'Booking',
 			'availabe' : data.loc[0]['available'],
@@ -252,6 +249,3 @@ def booking(request):
 		return render(request, 'booking.html', context)
 		#return data.loc[0]['available'] 
 		#return HttpResponse(data.loc[0]['available'])
-
-
-

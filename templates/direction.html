@@ -3,37 +3,34 @@
 
     
 {% block styles %}
-    <script src="https://kit.fontawesome.com/66748fbdce.js" crossorigin="anonymous"></script>
+    <!--script src="https://kit.fontawesome.com/66748fbdce.js" crossorigin="anonymous"></script-->
     <link rel="stylesheet" href= "{% static 'index.css'%}">
 
     <style>
-        .left {
+        body {
             background-image: url("{%static 'bg.jpg'%}") ;
-            height: 100%; 
-
-            /* Center and scale the image nicely */
+            height: 100%;
             background-repeat: no-repeat;
             background-size: cover;
         }
-    </style>
-
-    <style>
-        .right {
-            background: #eee;
+        .main-heading {
+            top: 25% !important;
         }
-        .main {
-            margin-top: 150px;
-            margin-left: 150px;
-
+        .map {
+            padding-top: 5%;
+            padding-left: 10%;
+        }
+        .map-button{
+            padding-left: 120px;
+        }
     </style>
 {% endblock styles %}
 
 
 {% block content %}
-
-    <div class="main">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-4 left">
+            <div class="col-md-6">
                 <div class="main-heading">
                     <span class="border">Centralized Parking System</span>
                     <br>
@@ -43,15 +40,11 @@
                     <a href="{% url 'booking' %}"><input type="button" class="btn btn-custom" value="Book"> </a> 
                 </div>
             </div>
-
-            <div class="col-md-8 right">
-
-                <div class="container">
-                    <iframe width="600" height="780" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJZxWJ268aDTkRhwqTHHNw0hA&key=AIzaSyCbKE0pHJ1cv2l7wPQT0uwKQ26lZNJb6f4" allowfullscreen></iframe>
-                </div>
+            <div class="col-md-6 map">
+                <iframe width="400" height="400" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJZxWJ268aDTkRhwqTHHNw0hA&key=AIzaSyCbKE0pHJ1cv2l7wPQT0uwKQ26lZNJb6f4" allowfullscreen></iframe>
+                <span class="map-button"><a href="https://www.google.com/maps/dir//Guru+Gobind+Singh+Indraprastha+University,+Sector+16+C,+Dwarka,+Delhi,+110078,+India/@28.594564,77.01843,16z/data=!4m16!1m6!3m5!1s0x0:0x10d270731c930a87!2sGuru+Gobind+Singh+Indraprastha+University!8m2!3d28.5945644!4d77.0184304!4m8!1m0!1m5!1m1!1s0x390d1aafdb891567:0x10d270731c930a87!2m2!1d77.0184304!2d28.5945644!3e3?hl=en-US" target="_blank"><input type="button" class="btn btn-custom" value="Get Direction"> </a> </span>
             </div>
         </div>
     </div>
-    
 {% endblock content %}
 

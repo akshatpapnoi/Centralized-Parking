@@ -1,6 +1,9 @@
+
+.center { text-align: center !important;}
+
 .main-heading {
     position: absolute;
-    left: 0;
+    left: auto;
     top: 30%;
     width: 100%;
     text-align: center;
