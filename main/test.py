@@ -52,6 +52,9 @@ if not exists(CHECKPOINT_DIR):
 
 model = load_model(CHECKPOINT_DIR, custom_objects={'LocalResponseNormalization': LocalResponseNormalization})
 
+print("***************")
+print(model.summary())
+
 
 
 f = plt.figure(figsize=(100,150))
