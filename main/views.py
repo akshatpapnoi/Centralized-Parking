@@ -81,7 +81,6 @@ def available(request):
 	model = load_model(CHECKPOINT_DIR, custom_objects={'LocalResponseNormalization': LocalResponseNormalization})
 
 
-
 	f = plt.figure(figsize=(100,150))
 	f.add_subplot(1,2, 1)
 	im = imread(IMAGE_DIR)

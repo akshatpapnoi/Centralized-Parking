@@ -126,6 +126,6 @@ STATICFILES_DIRS = [STATIC_DIR,]
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = '********'
-EMAIL_HOST_PASSWORD = '**********'
+EMAIL_HOST_USER = 'karandom92@gmail.com'
+EMAIL_HOST_PASSWORD = 'aspomnzx98K'
 EMAIL_USE_TLS = True
