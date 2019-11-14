@@ -152,13 +152,13 @@ def booking(request):
 	
 	if request.method == 'POST':
 		email = request.POST.get('email')
-		parking_spot_id = request.POST.get('parking_spot_id')
+		parking_spot_id = int(request.POST.get('parking_spot_id'))
 		end_time = request.POST.get('end_time')
 
 
 		pin = randint(1000, 9999)
 
-		new_booking = Booking.objects.create(email = email, parking_spot_id = parking_spot_id, end_time= end_time, pin = pin)
+		new_booking = Booking.objects.create(email = email, parking_spot_id = parking_spot_id-1, end_time= end_time, pin = pin)
 		new_booking.save()
 
 		subject = 'Pin for parking spot booking'

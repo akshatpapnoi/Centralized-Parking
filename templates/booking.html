@@ -59,20 +59,20 @@
 
                     <div class="row">
                         <div class="col-md-3 center">
-                            <i class="fas fa-car fa-size" id="car3"></i> <br> <br> <br>
-                            <i class="fas fa-car fa-size" id="car7"></i>
+                            <i class="fas fa-car fa-size" id="car3"></i> <br>4<br> <br>
+                            <i class="fas fa-car fa-size" id="car7"></i><br>8
                         </div>
                         <div class="col-md-3 center">
-                            <i class="fas fa-car fa-size" id="car2"></i> <br> <br> <br>
-                            <i class="fas fa-car fa-size" id="car6"></i>
+                            <i class="fas fa-car fa-size" id="car2"></i> <br>3 <br> <br>
+                            <i class="fas fa-car fa-size" id="car6"></i><br>7
                         </div>
                         <div class="col-md-3 center">
-                            <i class="fas fa-car fa-size" id="car1"></i> <br> <br> <br>
-                            <i class="fas fa-car fa-size" id="car5"></i>
+                            <i class="fas fa-car fa-size" id="car1"></i> <br>2 <br> <br>
+                            <i class="fas fa-car fa-size" id="car5"></i><br>6
                         </div>
                         <div class="col-md-3 center">
-                            <i class="fas fa-car fa-size" id="car0"></i> <br> <br> <br>
-                            <i class="fas fa-car fa-size" id="car4"></i>
+                            <i class="fas fa-car fa-size" id="car0"></i> <br>1 <br> <br>
+                            <i class="fas fa-car fa-size" id="car4"></i><br>5
                         </div>
                     </div>
                     
@@ -101,7 +101,7 @@
                                 <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form action="{% url 'booking' %}" method="POST">
+                            <form action="{% url 'booking' %}" method="POST" id="booking-form">
                                 {% csrf_token %}
                                 <div class="modal-body mx-3">
                                     <div class="md-form mb-5">
@@ -123,7 +123,7 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer d-flex justify-content-center">
-                                    <button class="btn btn-default">Book</button>
+                                    <button class="btn btn-default" >Book</button>
                                 </div>
                             </form>>
                             </div>
@@ -151,5 +151,8 @@
                 document.getElementById(text).style.color = "#0be881";
             }
         }
+
+        
+
     </script>
 {% endblock script %}
