@@ -1,5 +1,7 @@
 env
 env/
 weights/
+.vscode
+.vscode/
 
 *.pyc
